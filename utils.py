@@ -47,5 +47,3 @@ def preprocess_data(standardise=False):
     # Carry out train/test split from the given training data
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     return X_train, X_test, y_train, y_test, train_df, test_df
-
-#%%
