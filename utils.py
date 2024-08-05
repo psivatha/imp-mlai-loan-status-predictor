@@ -8,11 +8,14 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
 
-def preprocess_data(standardise=False):
-    train_df = pd.read_csv('data/loan_sanction_train.csv')
+def preprocess_data(
+        train_file_name='data/loan_sanction_train.csv',
+        test_file_name='data/loan_sanction_test.csv',
+        standardise=False):
+    train_df = pd.read_csv(train_file_name)
     # The original test file doesn't contain the Loan_Status field
     # Nevertheless loading it to construct a test set for another algorithm
-    test_df = pd.read_csv('data/loan_sanction_test.csv')
+    test_df = pd.read_csv(test_file_name)
 
     for df in [train_df, test_df]:
         # Convert categorical variables into numeric
@@ -113,3 +116,15 @@ def bayesian_optimisation(n_iters, sample_loss, bounds, x0, y0, gp_params):
         Y_sample = np.vstack((Y_sample, Y_next))
 
     return X_sample, Y_sample, gpr
+
+
+def write_new_data_file(model, X_train, y_train, test_df, target_filename):
+    model.fit(X_train, y_train)
+    X_test_final = test_df.drop(columns=['Loan_ID'])
+    y_test_pred = model.predict(X_test_final)
+    test_df['Loan_Status'] = y_test_pred
+    # Save the file
+    test_df.to_csv(target_filename, index=False)
+    print(f"Predictions have been saved to {target_filename}.")
+
+
