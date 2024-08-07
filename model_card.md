@@ -27,7 +27,7 @@ recognition, to process tabular data. The architecture includes:
 ## Performance
 
 **Accuracy:**
-The model achieved an accuracy of 78.86% on the training data. However it performed exceptionally well against a
+The model achieved an accuracy of 78.86% on the training data. However, it performed exceptionally well against a
 construction of unknown inputs with predictions from other models such as Linear Regression and K-Nearest Neighbours.
 
 **Validation:** During custom cross-validation, where the predictions of one model was used as validation data for
@@ -44,8 +44,7 @@ for the other models developed here.
 ## Limitations
 
 **Generalization:** The model's performance may vary with different datasets. It should be evaluated
-on new data to ensure it generalises well. However, due to the fact that the model performed well with the data
-predicted by a Linear Regression model and of KNN. The model can be somewhat safely assumed to be generalising well.
+on new data to ensure it generalises well.
 
 **Feature Dependency:** The model's predictions are only as good as the input features.
 Inaccurate or biased input data can lead to incorrect predictions.
@@ -59,7 +58,7 @@ affect the model's fairness.
 with accuracy, as adjustments to mitigate bias may affect the model's predictive performance.
 
 **Complexity vs. Interpretability:** The use of a deep learning model like LeNet5 improves accuracy but
-reduces interpretability compared to simpler models like Logistic Regression.
+reduces interpretability compared to simpler models like Logistic Regression or Decision Trees.
 
-**Training Time:** The model requires more time to train compared to simpler models, especially with large datasets,
-due to its complex architecture.
+**Training Time:** The model requires more time to train compared to simpler models, especially with any future
+large datasets that might be large. This is due to its complex architecture.

@@ -1,43 +1,53 @@
 # Datasheet Template
 
-As far as you can, complete the model datasheet. If you have got the data from the internet, you may not have all the information you need, but make sure you include all the information you do have.
+Dream Housing Finance company deals in all home loans. They have a presence across all urban, semi-urban and rural
+areas. The customer first applies for a home loan after that company validates the customer's eligibility for a loan.
+The company wants to automate the loan eligibility process (real-time) based on customer detail provided while
+filling out the online application form.
 
 ## Motivation
 
-- For what purpose was the dataset created?
-- Who created the dataset (e.g., which team, research group) and on behalf of which entity (e.g., company, institution, organization)? Who funded the creation of the dataset?
+- The company wants to automate the loan eligibility process (real-time) based on customer detail provided while filling
+  out the online application form. These details are Gender, Marital Status, Education, Number of Dependents, Income,
+  Loan Amount, Credit History and others.
+- Dream Housing Finance company created the dataset and funded its creation.
 
 
 ## Composition
 
-- What do the instances that comprise the dataset represent (e.g., documents, photos, people, countries)?
-- How many instances of each type are there?
-- Is there any missing data?
-- Does the dataset contain data that might be considered confidential (e.g., data that is protected by legal privilege or by    doctor–patient confidentiality, data that includes the content of individuals’ non-public communications)?
+- The dataset comprises various information of applicants in a CSV format.
+- The train dataset contained 614 rows and the provided test data contained 367 records but without the dependent
+  variable information, which is the loan status.
+- There were quite a few missing data, which have been filled with the mean of the existing data. Loan amount,
+  loan amount term, credit history, marital status, dependents, and employment information were the features that
+  contained missing data.
+- Credit history of individuals could be considered confidential information.
 
 ## Collection process
 
-- How was the data acquired?
-- If the data is a sample of a larger subset, what was the sampling strategy?
-- Over what time frame was the data collected?
+- There was not enough information to determine how the data was collected.
+- The data is not a sample of a larger dataset.
+- The information about the period in which the data was collected is not available
 
 ## Preprocessing/cleaning/labelling
 
-- Was any preprocessing/cleaning/labeling of the data done (e.g., discretization or bucketing, tokenization, part-of-speech tagging, SIFT feature extraction, removal of instances, processing of missing values)? If so, please provide a description. If not, you may skip the remaining questions in this section.
-- Was the “raw” data saved in addition to the preprocessed/cleaned/labeled data (e.g., to support unanticipated future uses)?
+- None of preprocessing/cleaning/labeling of the data done as part of this project. i.e.
+  None of discretisation or bucketing, tokenization, part-of-speech tagging, SIFT feature extraction, removal of
+  instances, processing of missing values were done.
 
 ## Uses
 
-- What other tasks could the dataset be used for?
-- Is there anything about the composition of the dataset or the way it was collected and preprocessed/cleaned/labeled that might impact future uses? For example, is there anything that a dataset consumer might need to know to avoid uses that could result in unfair treatment of individuals or groups (e.g., stereotyping, quality of service issues) or other risks or harms (e.g., legal risks, financial harms)? If so, please provide a description. Is there anything a dataset consumer could do to mitigate these risks or harms?
-- Are there tasks for which the dataset should not be used? If so, please provide a description.
+- The data could be used for potentially determining other relationship between family size and loan amount or loan
+  amount and total income etc.
+- There doesn't seem to be any limitation for this data to be used on any future projects due to how it is pre-processed
+  cleaned or labelled.
+- It's not obvious if there's any tasks that the dataset should not be used to.
 
 ## Distribution
 
-- How has the dataset already been distributed?
-- Is it subject to any copyright or other intellectual property (IP) license, and/or under applicable terms of use (ToU)?
+- The data is distributed as csv files on kaggle.com.
+- The data is publicly available and has no copyright restrictions.
 
 ## Maintenance
 
-- Who maintains the dataset?
-
+- There's no clear indication as to who or which company will maintain this dataset.
