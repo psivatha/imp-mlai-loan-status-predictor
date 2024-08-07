@@ -19,3 +19,26 @@ multiple layers to learn complex patterns in the data. Specifically, it analyses
 income, loan amount, credit history, and other personal details to predict whether a loan will be approved.
 By doing so, LeNet5 helps streamline and improve decision-making in loan processing, providing a robust tool
 for accurately assessing loan applications while the data is being entered.
+
+The following is the matrix of each model's performance against the validation data constructed using the other models.
+The rows correspond to the performance of the model and the columns represent the validation data produced by each
+model.
+
+|       | CNN  | DT   | KNN  | LeNet5 | LR   |
+|-------|------|------|------|--------|------|
+| **CNN**   | N/A  | 0.92 | 0.45 | 0.95   | 0.95 |
+| **DT**    | 0.21 | N/A  | 0.49 | 0.95   | 0.95 |
+| **KNN**   | 0.17 | 0.95 | N/A  | 0.99   | 0.99 |
+| **LeNet5**| 0.16 | 0.95 | 0.47 | N/A    | 1    |
+| **LR**    | 0.16 | 0.95 | 0.47 | 1      | N/A  |
+
+
+
+# How to set up the environment:
+- Run the following set of commands to set the environment from the root directory of the project:
+    ```
+    python -m venv .venv
+    source .venv/bin/activate
+    pip install -U pip -r requirements.text
+    ```
+- Use the python in this environment as the interpreter for the Jupyter notebook.

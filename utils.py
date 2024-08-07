@@ -12,6 +12,9 @@ def preprocess_data(
         train_file_name='data/loan_sanction_train.csv',
         test_file_name='data/loan_sanction_test.csv',
         standardise=False):
+    """
+    Reads and processes data from CSV files specific to the loan_sanction dataset.
+    """
     train_df = pd.read_csv(train_file_name)
     # The original test file doesn't contain the Loan_Status field
     # Nevertheless loading it to construct a test set for another algorithm
@@ -58,6 +61,9 @@ def preprocess_data(
 
 
 def expected_improvement(X, X_sample, Y_sample, gpr, xi=0.01):
+    """
+    Stock implementation of EI
+    """
     mu, sigma = gpr.predict(X, return_std=True)
     mu_sample = gpr.predict(X_sample)
 
@@ -74,6 +80,9 @@ def expected_improvement(X, X_sample, Y_sample, gpr, xi=0.01):
     return ei
 
 def propose_location(acquisition, X_sample, Y_sample, gpr, bounds, n_restarts=25):
+    """
+    Proposes the next set of input hyperparameters for the model in execution.
+    """
     dim = X_sample.shape[1]
     min_val = 1
     min_x = None
@@ -91,14 +100,7 @@ def propose_location(acquisition, X_sample, Y_sample, gpr, bounds, n_restarts=25
 
 def bayesian_optimisation(n_iters, sample_loss, bounds, x0, y0, gp_params):
     """
-    Bayesian optimization for decision trees
-    :param n_iters: No. of bayesian optimization iterations
-    :param sample_loss: The function that trains and evaluates the decision trees. See `optimise_decision_tree`
-    :param bounds: The bounds of each hyperparameter of the decision tree
-    :param x0: Initial sample points
-    :param y0: Initial evaluation points
-    :param gp_params: GPR parameters (GPR is initialised with Matern kernel)
-    :return: All sampled hyperparamters combinations, evaluations of them, final GPR
+    Bayesian optimization - using GPR and sample_loss as surrogate mode and EI as acquisition function.
     """
     X_sample = x0
     Y_sample = y0
@@ -119,6 +121,9 @@ def bayesian_optimisation(n_iters, sample_loss, bounds, x0, y0, gp_params):
 
 
 def write_new_data_file(model, X_train, y_train, test_df, target_filename):
+    """
+    Write new data file to disk with `target_filename` as its name
+    """
     model.fit(X_train, y_train)
     X_test_final = test_df.drop(columns=['Loan_ID'])
     y_test_pred = model.predict(X_test_final)
