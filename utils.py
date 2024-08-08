@@ -98,9 +98,10 @@ def propose_location(acquisition, X_sample, Y_sample, gpr, bounds, n_restarts=25
 
     return min_x.reshape(-1, 1)
 
+
 def bayesian_optimisation(n_iters, sample_loss, bounds, x0, y0, gp_params):
     """
-    Bayesian optimization - using GPR and sample_loss as surrogate mode and EI as acquisition function.
+    Bayesian optimization - using GPR as surrogate mode and EI as acquisition function.
     """
     X_sample = x0
     Y_sample = y0
